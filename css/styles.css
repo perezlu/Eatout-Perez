@@ -1,0 +1,208 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Dancing+Script:wght@600&family=Karla&display=swap');
+* {
+    padding: 0px;
+    margin: 0;
+    font-family: "karla", sans-serif;
+
+}
+body{
+    background-image: url("../img/mesh-gradient.png");
+    background-position: top;
+    color: #F2CAB3;
+}
+h1{
+    font-family: 'Dancing Script', cursive;
+    font-size: 60px;
+}
+h1:hover{
+    color: #8C452B;
+    transition: 0.2s;
+}
+h2, h3{
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 28px;
+}
+h4{
+    font-weight: bold;
+    font-size: 22px;
+}
+p, div, span{
+    font-size: 18px;
+}
+span{
+    display: inline-block;
+}
+.responsive {
+    width: 100%;
+    height: auto;
+}
+header img{
+    padding: 5px 0 0 5px;
+}
+ul{
+    padding: 0;
+}
+li{
+    padding: 0;
+}
+nav li{
+
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    height: fit-content;
+}
+nav a{
+    font-family: 'Berkshire Swash', cursive;
+    text-decoration: none;
+    color:#F2CAB3;
+    background-color: #141d25;
+    padding: 15px 40px;
+    border-radius: 62% 37% 63% / 50% 45% 55% 50% 
+}
+nav a:hover{
+    background: linear-gradient(145deg, #121a21, #151f28);
+    box-shadow:  7px 7px 41px #121a21, -7px -7px 41px #162029;
+    color: #8C452B;
+    transition: 0.2s;
+}
+#boton {
+    margin: 20px 0;
+    background-color: #D9AB9A;
+    color: #223240 !important;
+}
+#boton:hover {
+    background-color: #8C452B;
+    transition: 0.2s;
+}
+.card{
+    list-style-type: none;
+    flex-direction: column;
+    margin: 20px;
+    padding: 20px;
+    background-color: #223240aa;
+    border-radius: 37px;
+    background: linear-gradient(315deg, #33343c, #2d2e36);
+    box-shadow:  -22px -22px 45px #141d25, 22px 22px 45px #293b48;
+    align-items: center;
+}
+
+.card h1{
+    padding: 20px 0 15px 0;
+    text-align: center;
+}
+.card h2, h3{
+    padding: 15px 0;
+}
+.card h4{
+    padding: 20px 0  0;
+}
+.restaurants-index {  
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: stretch;
+    width: 100%;
+    grid-template-areas: 
+    "card2"
+    "card3"
+    "card4";
+}
+.restaurants-index ul{
+    margin: 10px 20px;
+}
+
+.card2{ grid-area: card2;}
+.card3{ grid-area: card3;}
+.card4{ grid-area: card4;}
+.text-i1 { grid-area: text-i1; }
+.text-i2 { grid-area: text-i2; }
+.text-i3 { grid-area: text-i3; }
+.img-resto1 { grid-area: img-resto1; }
+.img-resto2 { grid-area: img-resto2; }
+.img-resto3 { grid-area: img-resto3; }
+
+.text-i1, .text-i2, .text-i3{
+    padding-bottom: 10px;
+}
+.img-resto1, .img-resto2, .img-resto3{
+    border-radius: 37px;
+}
+
+
+footer{
+    margin: 100px 10px 0 10px;
+    padding: 100px 20px 0 20px;
+    background-color: #223240aa;
+    border-radius:50% 50% 10% 10% / 15% 15% 0% 0% ;
+}
+.form-outline{
+    margin: 30px 0;
+}
+@media screen and (min-width: 996px) {
+    p, div, span{
+        font-size: 22px;
+    }
+    nav ul{
+        font-size: 1.7vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        }
+    nav li{
+        padding: 20px;
+    }
+    header img{
+        padding: 10px 0 0 10px;
+        position: absolute;
+    }
+    .card{
+        margin: 50px;
+        padding: 30px;
+    }
+    .formulario{
+        padding: 80px 60px 0 60px;
+    }
+    .restaurants-index{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+    .restaurants-index ul{
+        margin: 10px 100px;
+    }
+    .card2{
+        display: grid; 
+        grid-auto-flow: row; 
+        grid-template-columns: 1fr 0.7fr 1fr; 
+        grid-template-rows: 1fr; 
+        grid-template-areas: 
+        "text-i1 text-i1 img-resto1"; 
+        gap: 30px;
+        align-items: auto;
+    }
+    .card3{
+        display: grid; 
+        grid-auto-flow: row; 
+        grid-template-columns: 1fr 0.7fr 1fr; 
+        grid-template-rows: 1fr; 
+        grid-template-areas: 
+        "img-resto2 text-i2 text-i2"; 
+        gap: 30px;
+        align-items: auto; 
+    }
+    .card4{
+        display: grid; 
+        grid-auto-flow: row; 
+        grid-template-columns: 1fr 0.7fr 1fr; 
+        grid-template-rows: 1fr; 
+        grid-template-areas: 
+        "text-i3 text-i3 img-resto3"; 
+        gap: 30px;
+        align-items: auto; 
+    }
+}
