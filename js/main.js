@@ -10,9 +10,11 @@ let mailContacto;
 const recReserva = 7;
 //Funciones
 function defAsist(){
-    for (var i = 1; i <= numAsistentes;){
+    for (let i = 1; i <= numAsistentes;){
         nombre = prompt("Ingresá el nombre de el asistente número" + " " + i);
+        if (nombre == null || nombre == "") {break}
         apellido = prompt("Ahora introducí su apellido");
+        if (apellido == null || apellido == "") {break}
         usuario = nombre + " " + apellido;
 
         asistentes.push(usuario);
@@ -28,12 +30,16 @@ function descAsist(){
 }
 
 
-
 //Cantidad de personas que asistirán
 numAsistentes = parseInt(prompt("¿cuántas personas asistirán?"));
+while (numAsistentes < 1) {
+    numAsistentes = parseInt(prompt("¿cuántas personas asistirán?"));
+}
 //Nombre y apellido de c/u
 defAsist()
 //informa a quiénes nombró como asistentes
+asistentes.sort()
+if (numAsistentes >= 1){
 alert("Los asistentes son" + " " + asistentes);
 //Informa de promociones vigentes si se cumplen las condiciones
 descAsist()
@@ -41,3 +47,4 @@ descAsist()
 diaReserva = parseFloat(prompt("ingresá en formato dd/mm/aa el día que deseas reservar"));
 //Mail de contacto
 mailContacto = prompt("Te solicitamos un mail de contacto para enviarte la confirmación de tu reserva");
+}
