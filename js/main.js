@@ -1,6 +1,8 @@
 //Variables
 let nombre;
+let nombreRes;
 let apellido;
+let apellidoRes;
 let usuario;
 let diaReserva;
 let numAsistentes;
@@ -8,6 +10,7 @@ let asistentes = [];
 let mailContacto;
 //Constantes
 const recReserva = 7;
+const anfitrion = {nombreRes, apellidoRes, mailContacto}
 //Funciones
 function defAsist(){
     for (let i = 1; i <= numAsistentes;){
@@ -21,6 +24,14 @@ function defAsist(){
         i++
     }
 }
+function defAnfitrion(){
+    nombreRes = prompt("Ingresá el nombre del anfitrión");
+    if (nombreRes == null || nombreRes == "") {return}
+    apellidoRes = prompt("Ahora introducí su apellido");
+    if (apellidoRes == null || apellidoRes == "") {return}
+    anfitrion.nombreRes = nombreRes
+    anfitrion.apellidoRes = apellidoRes
+}
 function descAsist(){
     if (numAsistentes >= 4) {
         alert("Felicidades! Tenés un 10% de descuento por ser" + " " + numAsistentes + " " + "asistentes");
@@ -29,7 +40,8 @@ function descAsist(){
     }
 }
 
-
+//Definir 
+defAnfitrion()
 //Cantidad de personas que asistirán
 numAsistentes = parseInt(prompt("¿cuántas personas asistirán?"));
 while (numAsistentes < 1) {
@@ -46,5 +58,6 @@ descAsist()
 //Día de la reserva
 diaReserva = parseFloat(prompt("ingresá en formato dd/mm/aa el día que deseas reservar"));
 //Mail de contacto
-mailContacto = prompt("Te solicitamos un mail de contacto para enviarte la confirmación de tu reserva");
+anfitrion.mailContacto = prompt("Te solicitamos un mail de contacto para enviarte la confirmación de tu reserva");
 }
+console.log(anfitrion)
