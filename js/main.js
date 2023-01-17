@@ -31,11 +31,10 @@ botonRes.addEventListener('click',() =>{
         camposReq.appendChild(p).style.color = 'red'
     }else{
     Reservar(nombreRes, apellidoRes, numAsistentes, diaReserva);
-    let confirmación = document.createElement("span")
-    const divConfirmacion = document.getElementById('confirmacion')
-    confirmacion.innerText = "Muchas gracias por su reserva! En los próximos minutos podrá recibir un mail a su cuenta donde aparecerán todos los datos de la reserva en caso de no recibirlo, escribanos a cualquiera de nuestras redes sociales para solucionar el problema. Bon appetit!"
-
-    confirmacion.appendChild(divConfirmacion)
+    let confirmacion = document.createElement("div");
+    const divConfirmacion = document.getElementById('confirmacion');
+    confirmacion.innerText = "Muchas gracias por su reserva! En los próximos minutos podrá recibir un mail a su cuenta donde aparecerán todos los datos de la reserva. En caso de no recibirlo, escribanos a cualquiera de nuestras redes sociales para solucionar el problema. Bon appetit!"
+    divConfirmacion.appendChild(confirmacion);
 }
 })
 
