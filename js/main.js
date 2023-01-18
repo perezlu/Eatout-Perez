@@ -67,8 +67,10 @@ botonRes.addEventListener('click',() =>{
         anfitrion.apellidoRes = apellidoRes
         anfitrion.mailContacto = mailContacto
         console.log(anfitrion);
+        localStorage.setItem('anfitrion', JSON.stringify(anfitrion));
     }
 })
+//storage
 
 
 
