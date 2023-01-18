@@ -8,11 +8,39 @@ let diaReserva;
 let numAsistentes;
 let asistentes = [];
 let mailContacto;
+let todos = [];
+let btnAdd = document.getElementById('numNames');
+
 //Constantes
 const recReserva = 7;
 const anfitrion = {nombreRes, apellidoRes, mailContacto};
 const botonRes = document.getElementById('buttonReserva');
+
+document.getElementById('buttonReserva').addEventListener('click', mostrarnombres);
+btnAdd.addEventListener("change", addElement, false);
+
 //Funciones
+function mostrarnombres() {
+	todos = [];
+    const valorcaja = document.getElementById('list').getElementsByTagName('input');
+    for (let i = 0; i < valorcaja.length; i++) {
+        todos.push(valorcaja[i].value);
+    }
+    console.log(todos)
+}
+function addElement() {
+    const lista_usuarios = document.getElementById('list').getElementsByTagName('input');
+    while(lista_usuarios.length > 0){
+        lista_usuarios[0].remove();
+    }
+    const num_personas = document.getElementById('numNames').value
+    for (let i = 0; i < num_personas; i++) {
+        let olList = document.getElementById('list');
+        let newListItem = document.createElement('input');
+        newListItem.placeholder = 'nombre';
+        olList.appendChild(newListItem);
+    }
+}
 function Reservar(nombreRes, apellidoRes, numAsistentes, diaReserva){
     alert(`Tu reserva está a nombre de ${nombreRes} ${apellidoRes}. los asistentes son ${numAsistentes} y la reserva es para el día ${diaReserva}`);
     let confirmacion = document.createElement("div");
@@ -41,6 +69,14 @@ botonRes.addEventListener('click',() =>{
         console.log(anfitrion);
     }
 })
+
+
+
+
+
+
+
+
 
 
 
