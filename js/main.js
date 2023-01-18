@@ -17,29 +17,30 @@ function Reservar(nombreRes, apellidoRes, numAsistentes, diaReserva){
     alert(`Tu reserva está a nombre de ${nombreRes} ${apellidoRes}. los asistentes son ${numAsistentes} y la reserva es para el día ${diaReserva}`);
     let confirmacion = document.createElement("div");
     const divConfirmacion = document.getElementById('confirmacion');
-    confirmacion.innerText = "Muchas gracias por su reserva! En los próximos minutos podrá recibir un mail a su cuenta donde aparecerán todos los datos de la reserva. En caso de no recibirlo, escribanos a cualquiera de nuestras redes sociales para solucionar el problema. Bon appetit!"
+    confirmacion.innerHTML = "<span>Muchas gracias por su reserva! En los próximos minutos podrá recibir un mail a su cuenta donde aparecerán todos los datos de la reserva.</span> <span>En caso de no recibirlo, escribanos a cualquiera de nuestras redes sociales para solucionar el problema.</span> <h3>Bon appetit!</h3>"
     divConfirmacion.appendChild(confirmacion);
 }
 
-//
+//eventos
 botonRes.addEventListener('click',() =>{
     nombreRes = document.getElementById('form4Example2').value
     apellidoRes = document.getElementById('form4Example25').value
+    mailContacto = document.getElementById('form4Example26').value
     numAsistentes = document.getElementById('numNames').value
     diaReserva = document.getElementById('form4Example4').value;
-
-    if (nombreRes == null || apellidoRes == null || diaReserva == null || nombreRes == "" || apellidoRes == "" || diaReserva == "") {
+    if (nombreRes == null || apellidoRes == null || mailContacto == null || diaReserva == null || nombreRes == "" || apellidoRes == "" || mailContacto == "" || diaReserva == "") {
         let p = document.createElement("p");
-        p.innerText= "CASILLAS REQUERIDAS"
-        const camposReq = document.getElementById('camposReq')
+        p.innerText= "Faltan casillas requeridas"
+        const camposReq = document.getElementById('error')
         camposReq.appendChild(p).style.color = 'red'
     }else{
-    Reservar(nombreRes, apellidoRes, numAsistentes, diaReserva);
-}
+        Reservar(nombreRes, apellidoRes, numAsistentes, diaReserva);
+        anfitrion.nombreRes = nombreRes
+        anfitrion.apellidoRes = apellidoRes
+        anfitrion.mailContacto = mailContacto
+        console.log(anfitrion);
+    }
 })
 
 
-anfitrion.nombreRes = nombreRes
-anfitrion.apellidoRes = apellidoRes
-anfitrion.mailContacto = mailContacto
 
