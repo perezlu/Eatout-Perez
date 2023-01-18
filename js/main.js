@@ -14,7 +14,11 @@ const anfitrion = {nombreRes, apellidoRes, mailContacto};
 const botonRes = document.getElementById('buttonReserva');
 //Funciones
 function Reservar(nombreRes, apellidoRes, numAsistentes, diaReserva){
-    alert(`tu reserva está a nombre de ${nombreRes} ${apellidoRes}. los asistentes son ${numAsistentes} y la reserva es para el día ${diaReserva}`);
+    alert(`Tu reserva está a nombre de ${nombreRes} ${apellidoRes}. los asistentes son ${numAsistentes} y la reserva es para el día ${diaReserva}`);
+    let confirmacion = document.createElement("div");
+    const divConfirmacion = document.getElementById('confirmacion');
+    confirmacion.innerText = "Muchas gracias por su reserva! En los próximos minutos podrá recibir un mail a su cuenta donde aparecerán todos los datos de la reserva. En caso de no recibirlo, escribanos a cualquiera de nuestras redes sociales para solucionar el problema. Bon appetit!"
+    divConfirmacion.appendChild(confirmacion);
 }
 
 //
@@ -31,10 +35,6 @@ botonRes.addEventListener('click',() =>{
         camposReq.appendChild(p).style.color = 'red'
     }else{
     Reservar(nombreRes, apellidoRes, numAsistentes, diaReserva);
-    let confirmacion = document.createElement("div");
-    const divConfirmacion = document.getElementById('confirmacion');
-    confirmacion.innerText = "Muchas gracias por su reserva! En los próximos minutos podrá recibir un mail a su cuenta donde aparecerán todos los datos de la reserva. En caso de no recibirlo, escribanos a cualquiera de nuestras redes sociales para solucionar el problema. Bon appetit!"
-    divConfirmacion.appendChild(confirmacion);
 }
 })
 
