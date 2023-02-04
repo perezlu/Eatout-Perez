@@ -49,7 +49,7 @@ function Reservar(nombreRes, apellidoRes, numAsistentes, diaReserva){
     divConfirmacion.appendChild(confirmacion);
 }
 
-//eventos
+//Eventos
 botonRes.addEventListener('click',() =>{
     nombreRes = document.getElementById('form4Example2').value
     apellidoRes = document.getElementById('form4Example25').value
@@ -70,15 +70,24 @@ botonRes.addEventListener('click',() =>{
         localStorage.setItem('anfitrion', JSON.stringify(anfitrion));
     }
 })
-//storage
 
+fetch('https://api.bluelytics.com.ar/v2/latest', {
+    method: 'GET',
+    headers: {
+        'Accept': 'application/json',
+    },
+})
+.then(response => response.json())
+.then(response => {
+    createDollarDesc(response); 
+});
 
+function createDollarDesc(response){
+    let cotiText = document.createElement('p');
+    cotiText.innerText = "Este restaurant habilita los pagos con tarjetas internacionales. El cambio al día de hoy es" + " $" + response.blue.value_buy
+    const cotizacion = document.getElementById('confirmacion')
+    cotizacion.appendChild(cotiText).style.color = 'darkgrey'
+    cotizacion.appendChild(cotiText).style.fontSize = "12px"
 
-
-
-
-
-
-
-
-
+    console.log(response.blue.value_buy)
+}
